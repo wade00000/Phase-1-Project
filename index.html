@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search characters...">
+        
+    </div>
+    <br>
+    
+
+    <div id="form-container">
+        <form id="form"  action="submit">
+            <label for="charname">Character name:</label>
+            <input type="text" id="charname" name="charname"><br><br>
+
+            <label for="species">Species:</label>
+            <input type="text" id="species" name="species"><br><br>
+
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender"><br><br>
+
+            <label for="img">Image URL:</label>
+            <input type="text" id="img" name="img"><br><br>
+
+            <button id="submit-form"> Submit</button>
+            
+        </form>
+    </div>
+    <br><br>
+    <div id="filter-container">
+        <label for="gender-filter">Filter by gender</label>
+        <select id="gender-filter">
+            <option value="all">All</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="unknown">Unknown</option>
+          </select>
+    </div>
+    
     
     
     <div id="character-container">
@@ -14,6 +48,8 @@
          
 
     </div>
+
+   
    
    
 
