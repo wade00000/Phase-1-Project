@@ -10,17 +10,26 @@
 <body>
 
     <button id="show-form-btn">Submit Character</button>
-    
+
     <div id="form-container">
         <form id="form"  action="submit">
             <label for="charname">Character name:</label>
             <input type="text" id="charname" name="charname"><br><br>
 
             <label for="species">Species:</label>
-            <input type="text" id="species" name="species"><br><br>
+            <select id="species" name="species">
+                <option value="human">Human</option>
+                <option value="alien">Alien</option>
+                <option value="robot">Robot</option>
+                <option value="unknown">Unknown</option>
+            </select><br><br>
 
             <label for="gender">Gender:</label>
-            <input type="text" id="gender" name="gender"><br><br>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="unknown">Unknown</option>
+            </select><br><br>
 
             <label for="img">Image URL:</label>
             <input type="text" id="img" name="img"><br><br>
@@ -34,7 +43,7 @@
 
     <div id="filter-container">
 
-        <label for="gender-filter">Filter by gender</label>
+        <label for="gender-filter">Filter by Gender</label>
         <select id="gender-filter">
             <option value="all">All</option>
             <option value="Male">Male</option>

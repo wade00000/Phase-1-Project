@@ -18,13 +18,22 @@ body {
     max-width: 500px;
 }
 
-/* Input Fields */
-input[type="text"] {
+/* Input Fields and Dropdowns */
+input[type="text"], select {
     width: calc(100% - 20px);
-    padding: 8px;
+    padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }
 
 /* Buttons */
@@ -37,6 +46,7 @@ button {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     margin-top: 10px;
+    font-size: 16px;
 }
 
 button:hover {
@@ -123,9 +133,13 @@ button:hover {
 }
 
 select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    appearance: none; /* Removes default dropdown arrow */
+    background-color: white;
+    cursor: pointer;
+}
+
+select:hover {
+    border-color: #007bff;
 }
 
 #form-container {
