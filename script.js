@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     const clearSearch = document.querySelector("#clear-search")
     clearSearch.addEventListener("click",handleClrSearch)
 
+    // show form button event listener
+    const showFormBtn = document.querySelector("#show-form-btn")
+    showFormBtn.addEventListener("click",handleShowBtn)
+
     
     
     
@@ -177,8 +181,13 @@ document.addEventListener("DOMContentLoaded",()=>{
         cards.forEach(card => {
            card.style.display = "block"; // reshows cards
        });
-       
+
        };
+
+     function handleShowBtn(){
+        const formContainer = document.querySelector("#form-container");
+        formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
+     }
 
      })
 

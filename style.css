@@ -127,3 +127,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+#form-container {
+    display: none; /* Start hidden */
+}
