@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
     <div id="search-container">
+
         <input type="text" id="search-input" placeholder="Search characters...">
         <button id="clear-search"> &times </button>
         
     </div>
+   
     <br>
     
-
     <div id="form-container">
         <form id="form"  action="submit">
             <label for="charname">Character name:</label>
@@ -27,11 +32,13 @@
             <label for="img">Image URL:</label>
             <input type="text" id="img" name="img"><br><br>
 
-            <button id="submit-form"> Submit</button>
+            <button type="submit" id="submit-form"> Submit</button>
             
         </form>
     </div>
+
     <br><br>
+
     <div id="filter-container">
 
         <label for="gender-filter">Filter by gender</label>
@@ -54,15 +61,10 @@
     
     
     <div id="character-container">
-    
-         
-
+    <!-- character cards go here -->
     </div>
 
    
-   
-   
-
     <script src="script.js"></script>
 </body>
 </html>
