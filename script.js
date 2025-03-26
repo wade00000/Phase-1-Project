@@ -11,13 +11,25 @@ document.addEventListener("DOMContentLoaded",()=>{
     const search = document.querySelector("#search-input")
     search.addEventListener("input",handleSearch)
 
-    // filter drobdown event listener
+    // gender filter dropdown event listener
     const genderFilter = document.querySelector("#gender-filter");
-    genderFilter.addEventListener("change", handleFilter);
+    genderFilter.addEventListener("change", handleGenderFilter);
 
+    // species filter dropdown event listener
+    const speciesFilter = document.querySelector("#species-filter")
+    speciesFilter.addEventListener("change",handleSpeciesFilter)
+
+    // clear-search button event listener
+    const clearSearch = document.querySelector("#clear-search")
+    clearSearch.addEventListener("click",handleClrSearch)
+
+    
+    
+    
+    
     // function to render each character into a card in the HTML
     function renderCharacter(character){
-        const div = document.querySelector("#character-container")
+         const div = document.querySelector("#character-container")
          const charDiv = document.createElement("div")
          charDiv.classList.add("character-card")
 
@@ -26,6 +38,7 @@ document.addEventListener("DOMContentLoaded",()=>{
          h2.textContent = character.name
 
          const p1 = document.createElement("p")
+         p1.classList.add("species")
          p1.textContent = character.species
 
          const p2 = document.createElement("p")
@@ -36,34 +49,39 @@ document.addEventListener("DOMContentLoaded",()=>{
          img.src = character.image
          img.alt = character.name
 
+         const remove = document.createElement("button")
+         remove.innerHTML = "&times;"; // Renders the ❌ symbol correctly in HTML instead of => remove.textContent = "❌"
+
          const likeCount = document.createElement("p")
+         const like = document.createElement("button")
+         like.type = "button"
+         like.textContent= "❤️"
 
-         const btn = document.createElement("button")
-         btn.type = "button"
-         btn.textContent= "❤️"
-
-         let count = 0
-
-         btn.addEventListener("click",()=>{
-            count ++
-            likeCount.textContent = `Likes :${count}`
+        
+         // like character event
+         count = 0
+         like.addEventListener("click",()=>{
+            count++;
+            likeCount.textContent = `Likes: ${count}`;
+         })
+         
+         // delete character event
+         remove.addEventListener("click",()=>{
+             charDiv.remove()
          })
 
          
-         
-
          // places the details into the card
-         charDiv.appendChild(h2)
-         charDiv.appendChild(p1)
-         charDiv.appendChild(p2)
-         charDiv.appendChild(img)
-         charDiv.appendChild(btn)
-         charDiv.appendChild(likeCount)
+         charDiv.append(remove, h2, p1, p2, img, like, likeCount);
+
 
         //  places card into container
          div.appendChild(charDiv)
 
         };
+
+
+
 
      // function for form submission functionality
      function handleFormSubmit(event){
@@ -74,7 +92,8 @@ document.addEventListener("DOMContentLoaded",()=>{
         const species = document.querySelector("#species").value;
         const gender = document.querySelector("#gender").value;
         const image = document.querySelector("#img").value;
-
+       
+        // creates new character adding input values
         const newChar = {
             name : name,
             species : species,
@@ -84,8 +103,15 @@ document.addEventListener("DOMContentLoaded",()=>{
 
         renderCharacter(newChar)
 
+        //resets filter when new character is added 
+        genderFilter.value = "all";
+        speciesFilter.value = "all";
+        handleGenderFilter({ target: genderFilter });
+        handleSpeciesFilter({ target: speciesFilter });
+
         form.reset()
-    };
+       };
+
     
 
      function handleSearch(event){
@@ -102,9 +128,11 @@ document.addEventListener("DOMContentLoaded",()=>{
             card.style.display = "none"
         }
        })
-     };
+       };
 
-     function handleFilter (event) {
+
+
+     function handleGenderFilter (event) {
         const option = event.target.value.toLowerCase() // gets dropdown selection
         const cards = document.querySelectorAll(".character-card") // selects all character cards
 
@@ -112,23 +140,55 @@ document.addEventListener("DOMContentLoaded",()=>{
            const genderInfo =  card.querySelector(".gender").textContent.toLowerCase()
 
            if(option === "all" || option === genderInfo){
-            card.style.display = "block"
+            card.style.display = "block" // show cards
            }else{
-            card.style .display = "none"
+            card.style .display = "none" // hide cards
            }
         })
 
-        search.value = ""
+        
+        };
 
 
-     };
+
+     function handleSpeciesFilter(event){
+        const option = event.target.value.toLowerCase()
+        const cards = document.querySelectorAll(".character-card")
+
+        cards.forEach(card=>{
+           const speciesInfo = card.querySelector(".species").textContent.toLowerCase()
+
+        if(option === "all" || option === speciesInfo ){
+            card.style.display = "block" // show cards
+        }else{
+            card.style.display = "none" // hide cards
+        }
+        })
 
         
+        };
+
+
+    
+     function handleClrSearch(){
+        search.value = "" // clears search field
+
+        const cards = document.querySelectorAll(".character-card");
+        cards.forEach(card => {
+           card.style.display = "block"; // reshows cards
+       });
+       
+       };
+
      })
 
     
     
 
+
+
+         
+         
 
 
 

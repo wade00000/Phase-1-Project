@@ -7,6 +7,7 @@
 
     <div id="search-container">
         <input type="text" id="search-input" placeholder="Search characters...">
+        <button id="clear-search"> &times </button>
         
     </div>
     <br>
@@ -32,13 +33,22 @@
     </div>
     <br><br>
     <div id="filter-container">
+
         <label for="gender-filter">Filter by gender</label>
         <select id="gender-filter">
             <option value="all">All</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="unknown">Unknown</option>
-          </select>
+        </select>
+
+        <label for="species-filter">Filter by Species:</label>
+        <select id="species-filter">
+            <option value="all">All</option>
+            <option value="human">Human</option>
+            <option value="alien">Alien</option>
+        </select>
+        
     </div>
     
     
