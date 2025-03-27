@@ -133,7 +133,7 @@ button:hover {
 }
 
 select {
-    appearance: none; /* Removes default dropdown arrow */
+    
     background-color: white;
     cursor: pointer;
 }
