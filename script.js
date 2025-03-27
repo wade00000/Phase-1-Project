@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded",()=>{
     fetch("https://rickandmortyapi.com/api/character") // fetches all characters
-    .then(res=>res.json())
+    .then(res=>res.json()) // converts the fetched character data into a json file
     .then(data=>data.results.forEach(renderCharacter)) // calls the function on each character 
    
     // form submission event listener
