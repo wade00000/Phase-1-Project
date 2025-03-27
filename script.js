@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     const showFormBtn = document.querySelector("#show-form-btn")
     showFormBtn.addEventListener("click",handleShowBtn)
 
+    // toggle dark mode event listener
     const darkModeToggle = document.querySelector("#dark-mode")
     darkModeToggle.addEventListener("click",handleDark)
 
@@ -36,54 +37,59 @@ document.addEventListener("DOMContentLoaded",()=>{
     
    // Function to render each character into a card in the HTML
 function renderCharacter(character) {
-    const div = document.querySelector("#character-container");
-    const charDiv = document.createElement("div");
-    charDiv.classList.add("character-card");
+        const div = document.querySelector("#character-container");
+        const charDiv = document.createElement("div");
+        charDiv.classList.add("character-card");
 
-    // Create details for the card
-    const h2 = document.createElement("h2");
-    h2.textContent = character.name;
+        // Create details for the card
+        const h2 = document.createElement("h2");
+        h2.textContent = character.name;
 
-    const p1 = document.createElement("p");
-    p1.classList.add("species");
-    p1.textContent = character.species.charAt(0).toUpperCase() + character.species.slice(1); // Title Case
+        const p1 = document.createElement("p");
+        p1.classList.add("species");
+        p1.textContent = character.species.charAt(0).toUpperCase() + character.species.slice(1); // Title Case
 
-    const p2 = document.createElement("p");
-    p2.classList.add("gender");
-    p2.textContent = character.gender.charAt(0).toUpperCase() + character.gender.slice(1); // Title Case
+        const p2 = document.createElement("p");
+        p2.classList.add("gender");
+        p2.textContent = character.gender.charAt(0).toUpperCase() + character.gender.slice(1); // Title Case
 
-    const img = document.createElement("img");
-    img.src = character.image;
-    img.alt = character.name;
+        const img = document.createElement("img");
+        img.src = character.image;
+        img.alt = character.name;
 
-    const remove = document.createElement("button");
-    remove.innerHTML = "&times;"; // Renders ❌ correctly
+        const remove = document.createElement("button");
+        remove.innerHTML = "&times;"; // Renders ❌ correctly
 
-    const likeCount = document.createElement("p");
-    likeCount.textContent = "Likes: 0"; // Initial Like Count
+        const likeCount = document.createElement("p");
+        likeCount.textContent = "Likes: 0"; // Initial Like Count
 
-    const like = document.createElement("button");
-    like.type = "button";
-    like.textContent = "❤️";
+        const like = document.createElement("button");
+        like.type = "button";
+        like.textContent = "❤️";
 
-    // Like character event (fix: count scoped to each card)
-    let count = 0;
-    like.addEventListener("click", () => {
-        count++;
-        likeCount.textContent = `Likes: ${count}`;
-    });
 
-    // Delete character event
-    remove.addEventListener("click", () => {
-        charDiv.remove();
-    });
 
-    // Place details into the card
-    charDiv.append(remove, h2, p1, p2, img, like, likeCount);
+        // Like character event 
+        let count = 0;
+        like.addEventListener("click", () => {
+            count++;
+            likeCount.textContent = `Likes: ${count}`;
+        });
 
-    // Place card into container
-    div.appendChild(charDiv);
-}
+        // Delete character event
+        remove.addEventListener("click", () => {
+            charDiv.remove();
+        });
+
+
+
+        // Place details into the card
+        charDiv.append(remove, h2, p1, p2, img, like, likeCount);
+
+        // Place card into container
+        div.appendChild(charDiv);
+
+    };
 
 
 
@@ -116,7 +122,8 @@ function renderCharacter(character) {
         handleSpeciesFilter({ target: speciesFilter });
 
         form.reset()
-       };
+
+    };
 
     
 
@@ -134,7 +141,8 @@ function renderCharacter(character) {
             card.style.display = "none"
         }
        })
-       };
+
+    };
 
 
 
@@ -152,10 +160,7 @@ function renderCharacter(character) {
            }
         })
 
-        
-
-        
-        };
+    };
 
 
 
@@ -172,9 +177,8 @@ function renderCharacter(character) {
             card.style.display = "none" // hide cards
         }
         })
-
-        
-        };
+       
+    };
 
 
     
@@ -186,12 +190,15 @@ function renderCharacter(character) {
            card.style.display = "block"; // reshows cards
        });
 
-       };
+    };
+
+
 
      function handleShowBtn(){
         const formContainer = document.querySelector("#form-container");
         formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
-     }
+
+    };
 
 
 
@@ -202,9 +209,12 @@ function renderCharacter(character) {
         } else {
             darkModeToggle.textContent = "Dark Mode";
         }
-     }
 
-     })
+    };
+
+
+
+     });
 
     
     
