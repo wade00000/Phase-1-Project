@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     const showFormBtn = document.querySelector("#show-form-btn")
     showFormBtn.addEventListener("click",handleShowBtn)
 
+    const darkModeToggle = document.querySelector("#dark-mode")
+    darkModeToggle.addEventListener("click",handleDark)
+
     
     
     
@@ -187,6 +190,17 @@ document.addEventListener("DOMContentLoaded",()=>{
      function handleShowBtn(){
         const formContainer = document.querySelector("#form-container");
         formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
+     }
+
+
+
+     function handleDark(){
+        document.body.classList.toggle('dark-mode');
+        if(document.body.classList.contains('dark-mode')){
+            darkModeToggle.textContent = "Light Mode";
+        } else {
+            darkModeToggle.textContent = "Dark Mode";
+        }
      }
 
      })

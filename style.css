@@ -145,3 +145,38 @@ select:hover {
 #form-container {
     display: none; /* Start hidden */
 }
+
+
+ /* Dark mode styles */
+.dark-mode { 
+    background-color: rgb(29, 27, 27);
+    color: white; /* Makes text readable in dark mode */
+}
+
+.dark-mode .character-card {
+    background-color: #333;
+    color: white;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode #search-container, 
+.dark-mode #form-container, 
+.dark-mode #filter-container {
+    background: #444;
+    color: white;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode input, .dark-mode select {
+    background: #555;
+    color: white;
+    border: 1px solid #777;
+}
+
+.dark-mode button {
+    background-color: #007bff;
+}
+
+.dark-mode button:hover {
+    background-color: #0056b3;
+}
