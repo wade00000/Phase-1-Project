@@ -49,6 +49,9 @@ This project is a **Single Page Application (SPA)** that allows users to explore
 ## Author
 - Wade Namada
 
+## Github Pages Link
+- https://wade00000.github.io/Phase-1-Project/
+
 ## License
 This project is open-source and free to use.
 
