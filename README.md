@@ -39,7 +39,7 @@ This project is a **Single Page Application (SPA)** that allows users to explore
 2. **Searching:** Type a name in the search box to find characters.
 3. **Filtering:** Use the dropdown menus to filter by gender or species.
 4. **Adding a Character:** Click the **"Submit Character"** button to show the form, fill it out, and submit.
-5. **Liking & Removing:** Click the heart button to like a character, or the trash button to remove them.
+5. **Liking & Removing:** Click the heart button to like a character, or the X button to remove them.
 
 ## Future Improvements
 - Persistent storage for added characters.
